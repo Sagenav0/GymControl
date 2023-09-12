@@ -65,7 +65,6 @@
                     </form>
                 </div>
                 <div class="card-footer text-muted">
-                    Footer
                 </div>
             </div>
         </div>
@@ -75,21 +74,20 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
+                            <th scope="col">usuario</th>
                             <th scope="col">Nombres</th>
                             <th scope="col">Apellidos</th>
                             <th scope="col">Cedula</th>
+                            <th scope="col">Telefono</th>
                             <th scope="col">Correo</th>
-                            <th scope="col">Celular</th>
                             <th scope="col">Rol</th>
+                            <th scope="col">Usuario que lo registro</th>
                             <th scope="col">Estado</th>
-                            <th scope="col">Fecha de registro</th>
-                            <th scope="col">Usuario que registro</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {% for resul in operadores %}
+                        {% for resul in admin_super %}
                         <tr class="">
                             <td scope="row">{{ resul[0] }}</td>
                             <td>{{ resul[1] }}</td>
@@ -100,7 +98,6 @@
                             <td>{{ resul[6] }}</td>
                             <td>{{ resul[8] }}</td>
                             <td>{{ resul[9] }}</td>
-                            <td>{{ resul[10] }}</td>
                             <td><a class="btn btn-success" href="/admin/desactivarOpe/{{resul[0]}}">Desactivar</a></td>                           
                             {% if session["rol"] == 'su' %}
                             <td>

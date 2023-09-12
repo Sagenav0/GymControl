@@ -7,11 +7,11 @@ programa = Flask(__name__)
 
 mysql = MySQL()
 
-programa.config['MYSQL_DATABASE_HOST'] = 'localhost'
+programa.config['MYSQL_DATABASE_HOST'] = 'gymcontrol.mysql.database.azure.com'
 programa.config['MYSQL_DATABASE_PORT'] = 3306
-programa.config['MYSQL_DATABASE_USER'] = 'root'
-programa.config['MYSQL_DATABASE_PASSWORD'] = ''
-programa.config['MYSQL_DATABASE_DB'] = 'gymcontrol'
+programa.config['MYSQL_DATABASE_USER'] = 'horux69'
+programa.config['MYSQL_DATABASE_PASSWORD'] = 'gym_control2525'
+programa.config['MYSQL_DATABASE_DB'] = 'gym_control'
 mysql.init_app(programa)
 
 
@@ -24,7 +24,9 @@ Elsuper_admin = Super_admin(mysql)
 @programa.route('/')
 def inicio():
 
-    return render_template('prueba.html')
+    resultado_super_Admin = Elsuper_admin.consulta_super_admin()
+
+    return render_template('prueba.html', admin_super = resultado_super_Admin)
 
 
 
@@ -45,6 +47,8 @@ def crear_Superadmin():
     Elsuper_admin.crear_super([usuario, nombre, apellido, cedula, telefono, correo, cifrada,  rol,  estado])
 
     return redirect('/')
+
+
 
 
 
